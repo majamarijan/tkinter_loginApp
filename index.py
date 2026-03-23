@@ -7,6 +7,8 @@ import webbrowser
 root = Tk()
 root.geometry("470x500")
 root.resizable(False,False)
+root.iconbitmap('logo.ico')
+root.title('BoAI')
 #set fonts
 default_font = font.nametofont('TkDefaultFont')
 default_font.configure(family='Ubuntu', size=14, weight='normal')
@@ -43,10 +45,12 @@ password= Entry(box2)
 password.pack(side='right', expand=True, fill='both', padx=4)
 
 def check_input():
- if username.get() == 'asd' and password.get() == '123':
-  messagebox.showinfo("Info", "Login successfull")
- else:
-  messagebox.showerror('Error', "Username or password is incorrect!")
+  if username.get() == '' and password.get() == '':
+    messagebox.showinfo('Info', "Please, sign in.")
+  elif username.get() == 'asd' and password.get() == '123':
+    messagebox.showinfo("Info", "Login successfull")
+  else:
+    messagebox.showerror('Error', "Username or password is incorrect!")
   
 signIn = Button(form, padx=4, pady=4, text='Sign In', bg='#BD114A', fg='white', cursor='hand2', comman=check_input)
 signIn.pack(pady=6, fill='x', expand=True)
